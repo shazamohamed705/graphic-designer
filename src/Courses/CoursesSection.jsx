@@ -142,15 +142,14 @@ const CoursesSection = () => {
 
       <div className="max-w-7xl mx-auto">
            
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-          {getCurrentCourses().map((course, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12 items-start justify-items-center">
+          {courses.slice(0, 9).map((course, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] overflow-visible w-full max-w-[580px] mx-auto flex flex-col cursor-pointer transition-all duration-300 hover:shadow-[0_30px_60px_rgba(0,0,0,0.45)]" 
-              style={{ aspectRatio: '520 / 599.94' }}
+              className="bg-white rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] overflow-visible w-full max-w-[580px] mx-auto flex flex-col cursor-pointer transition-all duration-300 hover:shadow-[0_30px_60px_rgba(0,0,0,0.45)] h-full" 
               onClick={() => handleCourseClick(index)}
             >
-              <div className="relative mx-4 sm:mx-5 lg:mx-6 mt-4 aspect-[16/9] overflow-hidden shadow-2xl shadow-black/30 rounded-2xl sm:rounded-3xl">
+              <div className="relative mx-2 sm:mx-2 lg:mx-2 mt-4 aspect-[16/9] overflow-hidden rounded-2xl sm:rounded-3xl">
                 <img
                   src={course.image}
                   alt={course.title}
@@ -206,7 +205,7 @@ const CoursesSection = () => {
                   {course.description}
                 </p>
                 
-                <div className="flex items-center justify-between gap-4 ">
+                <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1">
                       {[...Array(course.rating)].map((_, i) => (
@@ -223,26 +222,6 @@ const CoursesSection = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Navigation Arrows */}
-        <div className="flex justify-center items-center gap-4 mb-8">
-          <button
-            onClick={prevPage}
-            className="w-12 h-12 rounded-full bg-white shadow-lg border-2 border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
-            disabled={totalPages <= 1}
-          >
-            <FaArrowLeft className="text-gray-600" />
-          </button>
-          
-   
-          <button
-            onClick={nextPage}
-            className="w-12 h-12 rounded-full bg-white shadow-lg border-2 border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
-            disabled={totalPages <= 1}
-          >
-            <FaArrowRight className="text-gray-600" />
-          </button>
         </div>
 
         <div className="flex justify-center">

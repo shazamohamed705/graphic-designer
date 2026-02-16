@@ -129,7 +129,7 @@ Career Support: We provide a supportive ecosystem, from portfolio reviews to str
             {/* Right Side - Image with Stats */}
             <div className="flex flex-col items-center lg:items-end">
               {/* Stats Section */}
-              <div className="flex flex-row justify-between w-full mb-4 px-4">
+              <div className="hidden lg:flex flex-row justify-between w-full mb-4 px-4">
                 {/* Stat 1 */}
                 <div 
                   className="flex flex-col -ml-16 md:-ml-24"
@@ -137,11 +137,10 @@ Career Support: We provide a supportive ecosystem, from portfolio reviews to str
                 >
                   <div className="flex items-center gap-3">
                     <h3 
-                      className="text-black"
+                      className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-[96px]"
                       style={{
                         fontFamily: 'Lexend',
                         fontWeight: 200,
-                        fontSize: '96px',
                         lineHeight: '100%',
                         letterSpacing: '0%',
                         WebkitFontSmoothing: 'antialiased'
@@ -150,11 +149,10 @@ Career Support: We provide a supportive ecosystem, from portfolio reviews to str
                       100%
                     </h3>
                     <p 
-                      className="text-black uppercase"
+                      className="text-black uppercase text-sm sm:text-base md:text-xl lg:text-[32px]"
                       style={{
                         fontFamily: 'Lexend',
                         fontWeight: 200,
-                        fontSize: '32px',
                         lineHeight: '100%',
                         letterSpacing: '0%',
                         WebkitFontSmoothing: 'antialiased'
@@ -204,7 +202,7 @@ Career Support: We provide a supportive ecosystem, from portfolio reviews to str
               </div>
               
               {/* Image - Extended to right edge */}
-              <div className="absolute right-0 mr-8 sm:mr-12 lg:mr-16 xl:mr-20 -mt-10 md:-mt-5 z-30">
+              <div className="hidden lg:block absolute right-0 mr-8 sm:mr-12 lg:mr-16 xl:mr-20 -mt-10 md:-mt-5 z-30">
                 <img
                   src="/Subtract.png"
                   alt="Subtract"
@@ -222,7 +220,7 @@ Career Support: We provide a supportive ecosystem, from portfolio reviews to str
         className="w-full relative bg-black py-32 lg:py-48 mt-32 lg:mt-48 z-10"
       >
         {/* Profile Image on the right - overlapping both sections */}
-        <div className="absolute right-8 md:right-16 lg:right-24 top-[-150px] z-[200]">
+        <div className="hidden lg:block absolute right-8 md:right-16 lg:right-24 top-[-150px] z-[200]">
           <img 
             src="/3 51.png" 
             alt="Profile" 
@@ -339,7 +337,7 @@ Career Support: We provide a supportive ecosystem, from portfolio reviews to str
       </section>
 
       {/* Our Values Section */}
-      <section className="w-full bg-white relative">
+      <section className="hidden lg:block w-full bg-white relative">
         <div className="relative w-full">
           {/* Large Image - Full Width Cover - Shifted Left */}
           <img 

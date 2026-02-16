@@ -28,6 +28,7 @@ function PhSection() {
             <AnimatedWords
               text="Learn visual identity design and brand building, and create stunning designs for social media using the world's most powerful design tools:"
               as="p"
+              byLine={true}
             />
           </div>
           
@@ -35,6 +36,7 @@ function PhSection() {
             <AnimatedWords
               text="Photoshop | Illustrator | InDesign"
               className="inline"
+              byLine={true}
               style={{
                 backgroundImage: 'linear-gradient(to right, #9C6B00, #FFD100, #BD8800)',
                 WebkitBackgroundClip: 'text',
@@ -48,6 +50,7 @@ function PhSection() {
             <AnimatedWords
               text="Start your journey toward excellence and creativity now with Al-Nasr Courses"
               as="p"
+              byLine={true}
             />
           </div>
         </div>

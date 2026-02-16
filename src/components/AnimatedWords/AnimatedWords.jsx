@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-const AnimatedWords = ({ text, className = "", style = {}, as = "h2" }) => {
+const AnimatedWords = ({ text, className = "", style = {}, as = "h2", byLine = false }) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [lines, setLines] = useState([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -13,11 +14,73 @@ const AnimatedWords = ({ text, className = "", style = {}, as = "h2" }) => {
     return () => observer.disconnect();
   }, []);
 
-  const Tag = as;
+  useEffect(() => {
+    if (byLine && ref.current && visible) {
+      const element = ref.current;
+      const words = text.split(" ");
+      const tempLines = [];
+      let currentLine = [];
+      let testElement = document.createElement('span');
+      testElement.style.visibility = 'hidden';
+      testElement.style.position = 'absolute';
+      testElement.style.whiteSpace = 'nowrap';
+      
+      // نسخ الـ styles من العنصر الأصلي
+      const computedStyle = window.getComputedStyle(element);
+      testElement.style.font = computedStyle.font;
+      testElement.style.fontSize = computedStyle.fontSize;
+      testElement.style.fontWeight = computedStyle.fontWeight;
+      
+      document.body.appendChild(testElement);
+      
+      const maxWidth = element.offsetWidth;
+      
+      words.forEach((word) => {
+        currentLine.push(word);
+        testElement.textContent = currentLine.join(' ');
+        
+        if (testElement.offsetWidth > maxWidth && currentLine.length > 1) {
+          currentLine.pop();
+          tempLines.push(currentLine.join(' '));
+          currentLine = [word];
+        }
+      });
+      
+      if (currentLine.length > 0) {
+        tempLines.push(currentLine.join(' '));
+      }
+      
+      document.body.removeChild(testElement);
+      setLines(tempLines);
+    }
+  }, [text, visible, byLine]);
 
-  // فصل الـ gradient styles عن الـ animation styles
+  const Tag = as;
   const hasGradient = style.backgroundImage || style.background;
 
+  // إذا كان byLine = true، نعرض السطور
+  if (byLine && lines.length > 0) {
+    return (
+      <Tag ref={ref} className={`overflow-hidden ${className}`} style={hasGradient ? style : {}}>
+        {lines.map((line, i) => (
+          <span
+            key={i}
+            className="block"
+            style={{
+              ...(hasGradient ? style : {}),
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(24px)",
+              transition: `opacity 0.8s ease-out ${i * 0.4}s, transform 0.8s ease-out ${i * 0.4}s`,
+            }}
+          >
+            {line}
+          </span>
+        ))}
+      </Tag>
+    );
+  }
+
+  // الوضع الافتراضي: كلمة كلمة
   return (
     <Tag ref={ref} className={`overflow-hidden ${className}`} style={hasGradient ? style : {}}>
       {text.split(" ").map((word, i) => (
