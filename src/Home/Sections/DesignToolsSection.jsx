@@ -7,8 +7,13 @@ const DesignToolsSection = () => {
       <div className="max-w-4xl mx-auto text-center">
         <div className="space-y-2 sm:space-y-3">
           <AnimatedWords
-            text="Industry-Standard Design Tools"
+            text='"Tools of the Trade, Skills for the Market."'
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black"
+          />
+          <AnimatedWords
+            text="We don't just teach software we teach you how to use"
+            as="p"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-black"
           />
           <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black">
             (
@@ -50,9 +55,9 @@ const DesignToolsSection = () => {
             )
           </div>
           <AnimatedWords
-            text="for crafting high-end visual identities social media designs, and professional branding with Alnasr Courses."
+            text="to deliver world-class results that clients are eager to pay for."
             as="p"
-            className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[30px] font-semibold text-black leading-relaxed"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-black leading-relaxed"
           />
         </div>
       </div>

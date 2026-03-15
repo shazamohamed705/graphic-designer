@@ -13,46 +13,61 @@ const CourseCardSection = () => {
 
   return (
     <section className="w-full bg-white py-6 sm:py-8 lg:py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl xl:max-w-5xl mx-auto">
-        {/* Course Card */}
-        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl shadow-black/40 overflow-hidden">
-          {/* Top Section - Video/Banner */}
-          <div className="relative w-full aspect-[16/9] overflow-hidden shadow-2xl shadow-black/30 rounded-t-2xl sm:rounded-t-3xl rounded-b-2xl sm:rounded-b-3xl">
-            {/* Background Image */}
-            <img
-              src="/84 1.png"
-              alt="Course Banner"
-              className="w-full h-full object-cover"
-            />
-            
-            {/* Dark Overlay with Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60">
-              {/* Abstract wavy shapes effect */}
-              <div className="absolute inset-0 opacity-30">
-                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal-400/20 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-400/20 rounded-full blur-3xl"></div>
-              </div>
-            </div>
+      <div className="max-w-5xl xl:max-w-7xl mx-auto">
+        {/* Free Lecture Heading - Above Card */}
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+          <h2 className="font-lexend font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6" style={{
+              backgroundImage: 'linear-gradient(to right, #BD8800 0%, #BD8800 35%, #FFD100 45%, #FFD100 55%, #9C6B00 65%, #9C6B00 100%)',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            color: 'transparent'
+          }}>
+            Free lecture
+          </h2>
+          <p className="text-gray-800 text-base sm:text-lg lg:text-xl max-w-4xl mx-auto leading-relaxed px-4">
+            "Take your seat now in a free lecture, where we open the doors to our backstage to show you the methodology by which we transform silent ideas into market-leading visual identities, and discover the secret of the gap that separates the amateur designer from the global professional."
+          </p>
+        </div>
 
-            {/* Play Button - Centered */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button
-                onClick={handlePlayClick}
-                className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-full border-4 border-cyan-300/80 bg-cyan-600/40 shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-200 overflow-hidden backdrop-blur-sm"
-                aria-label="Play video"
-              >
-                <img
-                  src="/1182011_555.png"
-                  alt="Play"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </button>
+        {/* Course Card */}
+        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl shadow-black/40 overflow-hidden p-4 sm:p-5 lg:p-6">
+          {/* Top Section - Video/Banner with Animated Border */}
+          <div className="relative mb-4 group">
+            {/* Video Container with Border */}
+            <div className="relative w-full aspect-[16/11] overflow-hidden rounded-3xl shadow-2xl shadow-black/30 bg-black">
+              {/* Static Border */}
+              <div className="absolute inset-0 rounded-3xl pointer-events-none z-20">
+                <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-b from-[#FF0000] via-[#DDFF11] via-[#FF00FF] to-[#00F2FF]">
+                  <div className="w-full h-full rounded-3xl bg-black"></div>
+                </div>
+              </div>
+
+              {/* Animated Light on Hover */}
+              <div className="absolute inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-b from-transparent via-white to-transparent border-light-animate">
+                  <div className="w-full h-full rounded-3xl bg-black"></div>
+                </div>
+              </div>
+            
+              {/* Play Button - Centered */}
+              <div className="absolute inset-0 flex items-center justify-center z-30">
+                <button
+                  onClick={handlePlayClick}
+                  className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-full border-4 border-cyan-300/80 bg-cyan-600/40 shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-200 overflow-hidden backdrop-blur-sm"
+                  aria-label="Play video"
+                >
+                  <img
+                    src="/1182011_555.png"
+                    alt="Play"
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Time and Students Count - Between Image and Title */}
-          <div className="px-4 sm:px-5 lg:px-6 pt-4 pb-2">
-            <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-4 sm:gap-6 mb-4">
               {/* 1 Minute */}
               <div className="flex items-center gap-2">
                 <img
@@ -77,10 +92,9 @@ const CourseCardSection = () => {
                 </span>
               </div>
             </div>
-          </div>
 
           {/* Bottom Section - Course Details */}
-          <div className="p-4 sm:p-5 lg:p-6 pt-0">
+          <div className="pt-0">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">
               Free Section
             </h3>

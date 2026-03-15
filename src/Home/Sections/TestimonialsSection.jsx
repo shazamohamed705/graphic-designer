@@ -61,22 +61,51 @@ const TestimonialsSection = () => {
           <AnimatedWords
             text="Student's Feedback"
             as="h3"
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4"
+            style={{ color: '#000000' }}
           />
+          <p className="text-gray-700 text-base sm:text-lg lg:text-xl max-w-4xl mx-auto leading-relaxed">
+            Elite voices: Success stories that began with passion and transformed into tangible professional realities thanks to methodology. Testimonials: From the classroom to leading their own projects
+          </p>
         </div>
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => {
+            // First column (0, 3) and last column (2, 5) should be black in 3-column layout
+            const isBlackCard = index % 3 === 0 || index % 3 === 2;
+            const bgGradient = isBlackCard 
+              ? 'linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 20%, #2d2d2d 60%, #1a1a1a 100%)'
+              : 'linear-gradient(45deg, #F0F0F0 0%, #FFFFFF 20%, #FFFFFF 60%, #F0F0F0 100%)';
+            const textColor = isBlackCard ? 'text-white' : 'text-black';
+            const quoteColor = isBlackCard ? 'text-gray-300' : 'text-gray-700';
+
+            return (
             <div key={index} className="w-full max-w-[415px] mx-auto">
               {/* Card */}
               <div 
-                className="rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] p-4 sm:p-5 lg:p-6 hover:shadow-xl transition-shadow duration-200 flex flex-col overflow-hidden"
+                className="rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] p-4 sm:p-5 lg:p-6 hover:shadow-xl transition-shadow duration-200 flex flex-col overflow-hidden relative group"
                 style={{ 
                   height: '202px',
-                  background: 'linear-gradient(45deg, #F0F0F0 0%, #FFFFFF 20%, #FFFFFF 60%, #F0F0F0 100%)'
+                  background: bgGradient
                 }}
               >
+                {/* Static Border */}
+                <div className="absolute inset-0 rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] pointer-events-none">
+                  <div className="absolute inset-0 rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] p-[2px] bg-gradient-to-b from-[#FF0000] via-[#DDFF11] via-[#FF00FF] to-[#00F2FF]">
+                    <div className="w-full h-full rounded-[30px] sm:rounded-[40px] lg:rounded-[50px]" style={{ background: bgGradient }}></div>
+                  </div>
+                </div>
+
+                {/* Animated Light on Hover */}
+                <div className="absolute inset-0 rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute inset-0 rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] p-[2px] bg-gradient-to-b from-transparent via-white to-transparent border-light-animate">
+                    <div className="w-full h-full rounded-[30px] sm:rounded-[40px] lg:rounded-[50px]" style={{ background: bgGradient }}></div>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="relative z-10 flex flex-col h-full">
                 {/* Profile Picture and Info */}
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-gray-300 overflow-hidden flex-shrink-0">
@@ -87,19 +116,20 @@ const TestimonialsSection = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm lg:text-base font-bold text-black">
+                    <h4 className={`text-xs sm:text-sm lg:text-base font-bold ${textColor}`}>
                       {testimonial.name}
                     </h4>
-                    <p className="text-xs sm:text-sm text-black">
+                    <p className={`text-xs sm:text-sm ${textColor}`}>
                       {testimonial.title}
                     </p>
                   </div>
                 </div>
 
                 {/* Quote */}
-                <p className="text-xs sm:text-sm text-gray-700 mb-2 sm:mb-3 leading-relaxed flex-1 overflow-hidden">
+                <p className={`text-xs sm:text-sm ${quoteColor} mb-2 sm:mb-3 leading-relaxed flex-1 overflow-hidden`}>
                   "{testimonial.quote}"
                 </p>
+                </div>
               </div>
 
               {/* Rating - Outside the card, below, on the left */}
@@ -111,7 +141,8 @@ const TestimonialsSection = () => {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

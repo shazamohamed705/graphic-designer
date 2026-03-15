@@ -150,3 +150,79 @@ html, body {
 .logo-scroll:hover {
   animation-play-state: paused;
 }
+
+/* Border Light Animation */
+@keyframes borderLight {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 200%;
+  }
+}
+
+.border-light-animate {
+  background-size: 100% 200%;
+  animation: borderLight 2s linear infinite;
+}
+
+/* Course Projects - Concave Carousel Effect */
+.perspective-container {
+  perspective: 1200px;
+  perspective-origin: center center;
+}
+
+.row-3d,
+.row-3d-reverse {
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  transform: rotateX(15deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Concave effect - ALL cards go DEEP back into screen */
+.card-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Create concave curve - all cards deep, only first and last tilted and stretched */
+.row-3d .card-3d {
+  transform: translateZ(-400px) scale(0.7) scaleX(1.2);
+}
+
+.row-3d .card-3d:nth-child(5n+1) {
+  transform: translateZ(-400px) rotateY(25deg) scale(0.7) scaleX(1.2);
+}
+
+.row-3d .card-3d:nth-child(5n+5) {
+  transform: translateZ(-400px) rotateY(-25deg) scale(0.7) scaleX(1.2);
+}
+
+/* Reverse concave - all cards deep, only first and last tilted opposite and stretched */
+.row-3d-reverse .card-3d {
+  transform: translateZ(-500px) scale(0.65) scaleX(1.2);
+}
+
+.row-3d-reverse .card-3d:nth-child(5n+1) {
+  transform: translateZ(-500px) rotateY(25deg) scale(0.65) scaleX(1.2);
+}
+
+.row-3d-reverse .card-3d:nth-child(5n+5) {
+  transform: translateZ(-500px) rotateY(-25deg) scale(0.65) scaleX(1.2);
+}
+
+/* Performance optimization for smooth animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none;
+  }
+}

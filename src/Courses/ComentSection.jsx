@@ -23,7 +23,7 @@ function ComentSection() {
   };
 
   return (
-    <section className="w-full bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10 lg:ml-40">
+    <section className="w-full bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10 lg:ml-40 mb-16 sm:mb-20 lg:mb-24">
       <div className="max-w-4xl mx-auto lg:mx-0 lg:ml-8 sm:lg:ml-12 lg:lg:ml-16">
         <div className="p-6 sm:p-8 lg:p-10 max-w-3xl">
           <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2">

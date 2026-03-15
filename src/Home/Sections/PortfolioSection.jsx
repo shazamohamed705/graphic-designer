@@ -23,13 +23,16 @@ const PortfolioSection = () => {
   <div className="font-lexend font-bold relative inline-block 
   text-[48px] sm:text-[64px] md:text-[96px]">
 
-  <span className="relative inline-block">
+  <span className="relative inline-block" style={{
+    backgroundImage: 'linear-gradient(90deg, #BD8800, #FFD100, #9C6B00)',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    color: 'transparent'
+  }}>
     O
-    <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-    
+    <span className="absolute -top-2 sm:-top-3 md:-top-4 left-1/2 transform -translate-x-1/2">
       <svg
-      className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 text-yellow-400"
-    
+        className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 text-yellow-400"
         fill="currentColor"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -42,12 +45,18 @@ const PortfolioSection = () => {
     text="ur Customers"
     as="span"
     className="inline"
+    style={{
+      backgroundImage: 'linear-gradient(90deg, #BD8800, #FFD100, #9C6B00)',
+      WebkitBackgroundClip: 'text',
+      backgroundClip: 'text',
+      color: 'transparent'
+    }}
   />
 </div>
   </div>
 
-  {/* Black strip with logos */}
-<div className="w-full bg-black py-6 mt-20 overflow-hidden">
+  {/* White strip with logos */}
+<div className="w-full bg-white py-6 mt-20 overflow-hidden">
   
   {/* Scrolling logos - smooth continuous */}
   <div className="flex gap-10 logo-scroll">

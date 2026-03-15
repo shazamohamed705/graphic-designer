@@ -73,12 +73,47 @@ const CoursesGridSection = () => {
   ];
 
   return (
-    <section className="w-full bg-gray-100 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 rounded-[80px] sm:rounded-[100px] lg:rounded-[120px]">
-      <div className="max-w-7xl mx-auto">
+    <>
+      {/* Decorative Images - Behind everything */}
+      <div className="relative">
+        <div className="absolute top-0 right-4 sm:right-6 lg:right-8 z-0">
+          <img 
+            src="/Ellipse 67.png" 
+            alt="Decoration" 
+            className="object-contain"
+          />
+        </div>
+
+        <div className="absolute bottom-0 left-4 sm:left-6 lg:left-8 z-0">
+          <img 
+            src="/Ellipse 66.png" 
+            alt="Decoration" 
+            className="object-contain"
+          />
+        </div>
+
+        <section className="w-full bg-gray-100/40 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 rounded-[80px] sm:rounded-[100px] lg:rounded-[120px] relative z-10">
+        <div className="max-w-7xl mx-auto">
         {/* Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12 relative z-10">
           {courses.map((course, index) => (
-            <div key={index} className="bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-visible w-full max-w-[414.99px] mx-auto flex flex-col" style={{ aspectRatio: '414.99 / 599.94' }}>
+            <div key={index} className="bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-visible w-full max-w-[414.99px] mx-auto flex flex-col relative group" style={{ aspectRatio: '414.99 / 599.94' }}>
+              {/* Static Border */}
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none">
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl p-[2px] bg-gradient-to-b from-[#FF0000] via-[#DDFF11] via-[#FF00FF] to-[#00F2FF]">
+                  <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
+                </div>
+              </div>
+
+              {/* Animated Light on Hover */}
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl p-[2px] bg-gradient-to-b from-transparent via-white to-transparent border-light-animate">
+                  <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
+                </div>
+              </div>
+              
+              {/* Card Content */}
+              <div className="relative z-10">
               {/* Top Section - Video/Banner - Extends beyond card */}
               <div className="relative mx-4 sm:mx-5 lg:mx-6 mt-4 aspect-[16/9] overflow-hidden shadow-2xl shadow-black/30 rounded-2xl sm:rounded-3xl">
                 <img
@@ -178,6 +213,7 @@ const CoursesGridSection = () => {
                   </button>
                 </div>
               </div>
+              </div>
             </div>
           ))}
         </div>
@@ -234,8 +270,10 @@ const CoursesGridSection = () => {
             </div>
           </div>
         )}
+        </div>
+        </section>
       </div>
-    </section>
+    </>
   );
 };
 

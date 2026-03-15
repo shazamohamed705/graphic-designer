@@ -112,6 +112,15 @@ const CoursesSection = () => {
       students: "220 Students",
       rating: 5,
       reviews: "180 reviews"
+    },
+    {
+      image: "/Untitled-3 4.png",
+      title: "UI/UX Design Fundamentals",
+      description: "Learn the principles of user interface and user experience design from scratch!",
+      duration: "2 Minutes",
+      students: "190 Students",
+      rating: 5,
+      reviews: "160 reviews"
     }
   ];
 
@@ -133,23 +142,56 @@ const CoursesSection = () => {
   };
 
   return (
-    <section 
-      className="w-full bg-black py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 rounded-3xl shadow-[0_25px_50px_rgba(0,0,0,0.6)]"
-      style={{
-        background: 'linear-gradient(180deg, #000000 0%, #1A1A1A 100%)'
-      }}
-    >
+    <>
+      {/* Decorative Images - Behind everything */}
+      <div className="relative">
+        <div className="absolute top-0 right-4 sm:right-6 lg:right-8 z-0">
+          <img 
+            src="/Ellipse 67.png" 
+            alt="Decoration" 
+            className="object-contain"
+          />
+        </div>
+
+        <div className="absolute bottom-0 left-4 sm:left-6 lg:left-8 z-0">
+          <img 
+            src="/Ellipse 66.png" 
+            alt="Decoration" 
+            className="object-contain"
+          />
+        </div>
+
+        <section 
+          className="w-full bg-gray-100/40 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 rounded-[80px] sm:rounded-[100px] lg:rounded-[120px] relative z-10 mb-16 sm:mb-20 lg:mb-24"
+        >
 
       <div className="max-w-7xl mx-auto">
            
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12 items-start justify-items-center">
+        {/* First 9 cards in 3x3 grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12 items-start relative z-10">
           {courses.slice(0, 9).map((course, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] overflow-visible w-full max-w-[580px] mx-auto flex flex-col cursor-pointer transition-all duration-300 hover:shadow-[0_30px_60px_rgba(0,0,0,0.45)] h-full" 
+              className="bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-visible w-full max-w-[580px] mx-auto flex flex-col cursor-pointer transition-all duration-300 h-full relative group" 
               onClick={() => handleCourseClick(index)}
             >
-              <div className="relative mx-2 sm:mx-2 lg:mx-2 mt-4 aspect-[16/9] overflow-hidden rounded-2xl sm:rounded-3xl">
+              {/* Static Border */}
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none">
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl p-[2px] bg-gradient-to-b from-[#FF0000] via-[#DDFF11] via-[#FF00FF] to-[#00F2FF]">
+                  <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
+                </div>
+              </div>
+
+              {/* Animated Light on Hover */}
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl p-[2px] bg-gradient-to-b from-transparent via-white to-transparent border-light-animate">
+                  <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
+                </div>
+              </div>
+
+              {/* Card Content */}
+              <div className="relative z-10">
+              <div className="relative mx-2 sm:mx-2 lg:mx-2 mt-4 aspect-[16/9] overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl shadow-black/30">
                 <img
                   src={course.image}
                   alt={course.title}
@@ -221,6 +263,105 @@ const CoursesSection = () => {
                 </div>
               </div>
             </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Last 2 cards centered */}
+        <div className="flex justify-center gap-6 sm:gap-8 mb-8 sm:mb-12 flex-wrap relative z-10">
+          {courses.slice(9, 11).map((course, index) => (
+            <div 
+              key={index + 9} 
+              className="bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-visible w-full max-w-[580px] flex flex-col cursor-pointer transition-all duration-300 h-full lg:w-[calc(33.333%-1rem)] relative group" 
+              onClick={() => handleCourseClick(index + 9)}
+            >
+              {/* Static Border */}
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none">
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl p-[2px] bg-gradient-to-b from-[#FF0000] via-[#DDFF11] via-[#FF00FF] to-[#00F2FF]">
+                  <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
+                </div>
+              </div>
+
+              {/* Animated Light on Hover */}
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl p-[2px] bg-gradient-to-b from-transparent via-white to-transparent border-light-animate">
+                  <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
+                </div>
+              </div>
+
+              {/* Card Content */}
+              <div className="relative z-10">
+              <div className="relative mx-2 sm:mx-2 lg:mx-2 mt-4 aspect-[16/9] overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl shadow-black/30">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-full object-cover"
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button
+                      onClick={() => handlePlayClick(index + 9)}
+                      className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-black/60 border-2 border-white/80 shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-200"
+                      aria-label="Play video"
+                    >
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-4 sm:px-5 lg:px-6 pt-6 sm:pt-8 pb-2">
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <div className="flex items-center gap-2">
+                    <img
+                      src="/clock_5417422 1.png"
+                      alt="Time"
+                      className="w-3 h-3 sm:w-5 sm:h-5 lg:w-5 lg:h-5 object-contain self-center mt-0.5 sm:mt-1"
+                    />
+                    <span className="text-gray-700 text-sm sm:text-base lg:text-lg font-medium leading-none">
+                      {course.duration}
+                    </span>
+                  </div>
+                  
+                  <div className="flex items-center gap-2">
+                    <img
+                      src="/group_694642 1.png"
+                      alt="Students"
+                      className="w-5 h-5 sm:w-7 sm:h-7 lg:w-7 lg:h-7 object-contain self-center mt-0.5 sm:mt-1"
+                    />
+                    <span className="text-gray-700 text-sm sm:text-base lg:text-lg font-medium leading-none">
+                      {course.students}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4 sm:p-5 lg:p-6 pt-0">
+                <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-black mb-3">
+                  {course.title}
+                </h3>
+                <p className="text-gray-700 text-xs sm:text-sm mb-4 leading-relaxed">
+                  {course.description}
+                </p>
+                
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1">
+                      {[...Array(course.rating)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="text-gray-600 text-sm sm:text-sm">({course.reviews})</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
           ))}
         </div>
 
@@ -278,7 +419,9 @@ const CoursesSection = () => {
           </div>
         )}
       </div>
-    </section>
+      </section>
+      </div>
+    </>
   );
 };
 

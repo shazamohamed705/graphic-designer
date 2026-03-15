@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const AnimatedWords = ({ text, className = "", style = {}, as = "h2", byLine = false }) => {
+const AnimatedWords = ({ text, className = "", style = {}, as = "h2", byLine = false, gradientPerLine = false }) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   const [lines, setLines] = useState([]);
@@ -58,16 +58,27 @@ const AnimatedWords = ({ text, className = "", style = {}, as = "h2", byLine = f
   const Tag = as;
   const hasGradient = style.backgroundImage || style.background;
 
+  // دالة لحساب اللون لكل سطر (من غامق لفاتح)
+  const getLineColor = (index, total) => {
+    const startColor = 0x3F; // #3F3F3F (غامق)
+    const endColor = 0xA5;   // #A5A5A5(فاتح)
+    const step = (endColor - startColor) / (total - 1);
+    const colorValue = Math.round(startColor + (step * index));
+    const hex = colorValue.toString(16).padStart(2, '0');
+    return `#${hex}${hex}${hex}`;
+  };
+
   // إذا كان byLine = true، نعرض السطور
   if (byLine && lines.length > 0) {
     return (
-      <Tag ref={ref} className={`overflow-hidden ${className}`} style={hasGradient ? style : {}}>
+      <Tag ref={ref} className={`overflow-hidden ${className}`}>
         {lines.map((line, i) => (
           <span
             key={i}
-            className="block"
+            className="block mb-3"
             style={{
-              ...(hasGradient ? style : {}),
+              color: gradientPerLine ? getLineColor(i, lines.length) : undefined,
+              ...(hasGradient && !gradientPerLine ? style : {}),
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(24px)",
               transition: `opacity 0.8s ease-out ${i * 0.4}s, transform 0.8s ease-out ${i * 0.4}s`,

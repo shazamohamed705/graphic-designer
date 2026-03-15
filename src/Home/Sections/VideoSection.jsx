@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const VideoSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -12,21 +12,40 @@ const VideoSection = () => {
   };
 
   return (
-    <section className="w-full bg-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
-        <div className="relative w-full aspect-[16/7] overflow-hidden rounded-[24px] sm:rounded-[28px] lg:rounded-[32px] shadow-lg bg-[#b8b3b3]">
-          <button
-            type="button"
-            onClick={handlePlayClick}
-            className="absolute inset-0 m-auto w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-full border-3 border-white/80 shadow-xl flex items-center justify-center hover:scale-105 transition-transform duration-200 overflow-hidden"
-            aria-label="Play video"
-          >
-            <img
-              src="/1182011_555.png"
-              alt="Play"
-              className="w-full h-full object-cover rounded-full"
-            />
-          </button>
+    <section className="relative w-full bg-transparent py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 -mt-24 z-20">
+      <div className="w-full max-w-[95%] mx-auto">
+        <div className="relative group" style={{ paddingBottom: '35%' }}>
+          {/* Static Gradient Border - Always Visible */}
+          <div className="absolute inset-0 rounded-[30px] pointer-events-none">
+            <div className="absolute inset-0 rounded-[30px] p-[5px] bg-gradient-to-b from-[#FF0000] via-[#DDFF11] via-[#FF00FF] to-[#00F2FF]">
+              <div className="w-full h-full rounded-[30px] bg-black"></div>
+            </div>
+          </div>
+
+          {/* Animated Light on Hover */}
+          <div className="absolute inset-0 rounded-[30px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute inset-0 rounded-[30px] p-[5px] bg-gradient-to-b from-transparent via-white to-transparent border-light-animate">
+              <div className="w-full h-full rounded-[30px] bg-black"></div>
+            </div>
+          </div>
+          
+          {/* Video Content */}
+          <div className="absolute inset-0 rounded-[30px] flex items-center justify-center pointer-events-auto">
+            <button
+              type="button"
+              onClick={handlePlayClick}
+              className="relative z-10 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
+              aria-label="Play video"
+            >
+              <svg 
+                className="w-10 h-10 text-black ml-1" 
+                fill="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Video Modal */}

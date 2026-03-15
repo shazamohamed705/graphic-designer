@@ -1,115 +1,95 @@
 import React from 'react';
-import AnimatedWords from '../../components/AnimatedWords/AnimatedWords';
 
 const ServicesSection = () => {
   return (
-    <section
-      className="
-        relative w-full
-        mt-20 sm:mt-24 lg:mt-32
-        py-24 sm:py-28 lg:py-32
-        px-4 sm:px-6 lg:px-8
-        rounded-br-[120px] sm:rounded-br-[180px] lg:rounded-br-[240px]
-        rounded-tl-[120px] sm:rounded-tl-[180px] lg:rounded-tl-[240px]
-      "
-      style={{ backgroundColor: 'rgb(0,0,0)' }}
-    >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-10">
-        <img
-          src="/11 82013.png"
-          alt="Background"
-          className="
-            w-full h-full object-cover opacity-80
-            rounded-br-[120px] sm:rounded-br-[180px] lg:rounded-br-[240px]
-            rounded-tl-[120px] sm:rounded-tl-[180px] lg:rounded-tl-[240px]
-          "
-        />
-      </div>
+    <section className="relative w-full bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Profile Image - Top */}
+        <div className="flex justify-center -mb-16 sm:-mb-20 lg:-mb-24">
+          <img
+            src="/45565621 1.png"
+            alt="Abdullah ElNasr"
+            className="w-[300px] sm:w-[400px] lg:w-[500px] h-auto object-contain"
+          />
+        </div>
 
-      {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
+        {/* Content Box */}
+        <div 
+          className="relative rounded-[80px] sm:rounded-[100px] lg:rounded-[120px] p-10 sm:p-14 lg:p-20 pt-4 sm:pt-5 lg:pt-6 overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, #1a1a1a 0%, #3d2a1a 50%, #8B6914 100%)'
+          }}
+        >
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0 opacity-70">
+            <img
+              src="/11 82014.png"
+              alt="Background Pattern"
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-          {/* LEFT - Image */}
-         {/* LEFT - Image */}
-<div className="relative">
-  <img
-    src="/profile 4.png"
-    alt="profile"
-    className="
-      absolute
-      -top-[200px]
-      left-1/3
-      -translate-x-1/2
-      lg:left-0
-      lg:translate-x-0
+          {/* Content - Above background */}
+          <div className="relative z-10">
+          {/* Header with Logo - Centered */}
+          <div className="flex justify-center mb-2">
+            <img
+              src="/logo alnaser text 1.png"
+              alt="Abdullah ElNasr Logo"
+              className="h-8 sm:h-10 lg:h-16 w-auto"
+            />
+          </div>
 
-      w-[260px] sm:w-[340px] lg:w-[480px]
-      h-[260px] sm:h-[340px] lg:h-[480px]
-      object-cover
-    "
-  />
-</div>
+          {/* Title - Centered */}
+          <h2 
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 text-center"
+            style={{
+              backgroundImage: 'linear-gradient(to right, #E6A326, #E9DB69, #E29C14)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent'
+            }}
+          >
+            Abdullah ElNasr
+          </h2>
 
-          {/* RIGHT - Text */}
-          {/* Section Header */}
-          <div className="relative z-20 -mt-16 sm:-mt-20 lg:-mt-24 mb-12 max-w-xl mx-auto lg:mx-0">
-  {/* Header */}
-  <div className="text-xl sm:text-2xl lg:text-3xl font-semibold whitespace-nowrap text-left">
-    {/* Name */}
-    <AnimatedWords
-      text="Abdullah ElNasr"
-      as="span"
-      className="inline"
-      style={{
-        backgroundImage: 'linear-gradient(to right, #E6A326, #E9DB69, #E29C14)',
-        WebkitBackgroundClip: 'text',
-        backgroundClip: 'text',
-        color: 'transparent'
-      }}
-    />
+          {/* Subtitle - Centered */}
+          <p className="text-white text-lg sm:text-xl mb-6 font-medium text-center">
+            A vision that began in the heart of the market
+          </p>
 
-    {/* Title */}
-    <span className="text-white font-medium">
-      : Creative Director & Founder
-    </span>
-  </div>
+          {/* Content with Border */}
+          <div className="border-l-4 border-yellow-500 pl-6 mb-8">
+            <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed mb-4">
+              For eight years, my passion has been more than just designing beautiful images; it's understanding the business psychology behind every pixel. After working with major agencies and brands, I've realized that Arab designers possess talent, but they need a clear professional roadmap to place them where they deserve to be.
+            </p>
+            
+            <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed">
+              ANS Courses is the culmination of my journey... I designed it to be the practical professional guide that saves you years of trial and error, so that you can be the next success story.
+            </p>
+          </div>
 
-  {/* Gold Line under Name */}
-  <div className="mt-1 mb-6 flex justify-start">
-    <span
-      className="
-        block
-        h-[2px]
-        w-32
-        bg-gradient-to-r
-        from-[#E6A326]
-        via-[#E9DB69]
-        to-[#E29C14]
-      "
-    />
-  </div>
-
-  {/* Paragraph */}
-  <p className="text-gray-200 text-sm sm:text-base leading-relaxed max-w-xl text-left ml-2">
-    With 6+ years of experience in the Egyptian and Saudi markets, I help
-    aspiring designers master industry-standard tools and build a
-    high-income freelance career through
-    <span className="text-white font-semibold"> Design to Income</span>.
-  </p>
-
-  {/* Full Image under paragraph */}
-{/* Full Image under paragraph */}
-<div className="mt-3 flex justify-start ml-10">
-  <img
-    src="/logo alnaser text 1.png"
-    alt="Logo Alnaser"
-    className="w-[400px] sm:w-[300px] h-auto"
-  /> 
-</div>
-</div>
-
+          {/* Learn More Button */}
+          <div className="flex justify-end">
+            <button className="btn-wave bg-white text-black px-8 py-3 rounded-full font-semibold text-base sm:text-lg flex items-center hover:bg-gray-100 transition-colors shadow-lg">
+              <span className="letter">L</span>
+              <span className="letter">e</span>
+              <span className="letter">a</span>
+              <span className="letter">r</span>
+              <span className="letter">n</span>
+              <span className="letter">&nbsp;</span>
+              <span className="letter">m</span>
+              <span className="letter">o</span>
+              <span className="letter">r</span>
+              <span className="letter">e</span>
+              <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center ml-3">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </button>
+          </div>
+          </div>
         </div>
       </div>
     </section>
